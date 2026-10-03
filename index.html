@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Daycare Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Daycare Management System</h1>
+
+        <!-- DASHBOARD -->
+        <section class="dashboard">
+
+            <div class="stat-card">
+                <h3>Total Children</h3>
+                <p id="totalChildren">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Male</h3>
+                <p id="totalMale">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Female</h3>
+                <p id="totalFemale">0</p>
+            </div>
+
+        </section>
+
+
+        <!-- CHILD REGISTRATION FORM -->
+
+        <h2>Child Registration Form</h2>
+
+        <form id="childForm">
+
+            <h3>Child Information</h3>
+
+            <label for="firstName">First Name:</label>
+            <input
+                type="text"
+                id="firstName"
+                required
+            >
+
+            <label for="lastName">Last Name:</label>
+            <input
+                type="text"
+                id="lastName"
+                required
+            >
+
+            <label for="dob">Date of Birth:</label>
+            <input
+                type="date"
+                id="dob"
+                required
+            >
+
+            <label for="gender">Gender:</label>
+
+            <select id="gender" required>
+
+                <option value="">Select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+
+            </select>
+
+
+            <label for="startDate">Start Date:</label>
+
+            <input
+                type="date"
+                id="startDate"
+                required
+            >
+
+
+            <label for="group">Group/Class:</label>
+
+            <input
+                type="text"
+                id="group"
+            >
+
+
+            <!-- PARENT INFORMATION -->
+
+            <h3>Parent Information</h3>
+
+            <label for="parentName">
+                Parent/Guardian Name:
+            </label>
+
+            <input
+                type="text"
+                id="parentName"
+                required
+            >
+
+
+            <label for="phone">
+                Phone Number:
+            </label>
+
+            <input
+                type="tel"
+                id="phone"
+                required
+            >
+
+
+            <label for="email">
+                Email:
+            </label>
+
+            <input
+                type="email"
+                id="email"
+            >
+
+
+            <label for="address">
+                Address:
+            </label>
+
+            <input
+                type="text"
+                id="address"
+            >
+
+
+            <!-- EMERGENCY INFORMATION -->
+
+            <h3>Emergency Information</h3>
+
+            <label for="emergencyName">
+                Emergency Contact Name:
+            </label>
+
+            <input
+                type="text"
+                id="emergencyName"
+            >
+
+
+            <label for="emergencyPhone">
+                Emergency Contact Phone:
+            </label>
+
+            <input
+                type="tel"
+                id="emergencyPhone"
+            >
+
+
+            <!-- ADDITIONAL INFORMATION -->
+
+            <h3>Additional Information</h3>
+
+            <label for="allergies">
+                Allergies:
+            </label>
+
+            <input
+                type="text"
+                id="allergies"
+            >
+
+
+            <label for="medical">
+                Medical Information:
+            </label>
+
+            <input
+                type="text"
+                id="medical"
+            >
+
+
+            <label for="specialNeeds">
+                Special Needs:
+            </label>
+
+            <input
+                type="text"
+                id="specialNeeds"
+            >
+
+
+            <label for="notes">
+                Notes:
+            </label>
+
+            <textarea
+                id="notes"
+                rows="4"
+            ></textarea>
+
+
+            <button
+                type="submit"
+                id="submitButton"
+            >
+                Register Child
+            </button>
+
+        </form>
+
+
+        <!-- REGISTERED CHILDREN -->
+
+        <hr>
+
+        <section class="registered-section">
+
+            <h2>Registered Children</h2>
+
+            <input
+                type="text"
+                id="searchChild"
+                placeholder="Search child by name..."
+            >
+
+            <div id="childrenList">
+
+                <p class="empty-message">
+                    No children registered yet.
+                </p>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
