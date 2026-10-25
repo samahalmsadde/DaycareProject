@@ -1,252 +1,742 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Daycare Management System</title>
+  <meta charset="UTF-8">
 
-    <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Daycare Management System</title>
+
+  <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-    <div class="container">
+<header class="site-header">
 
-        <h1>Daycare Management System</h1>
+  <div class="container">
 
-        <!-- DASHBOARD -->
-        <section class="dashboard">
+    <h1>Daycare Management System</h1>
 
-            <div class="stat-card">
-                <h3>Total Children</h3>
-                <p id="totalChildren">0</p>
-            </div>
+    <p>Children • Attendance • Daily Care • Staff • Payments</p>
 
-            <div class="stat-card">
-                <h3>Male</h3>
-                <p id="totalMale">0</p>
-            </div>
+  </div>
 
-            <div class="stat-card">
-                <h3>Female</h3>
-                <p id="totalFemale">0</p>
-            </div>
+</header>
 
-        </section>
+<main class="container">
 
+  <!-- DASHBOARD -->
 
-        <!-- CHILD REGISTRATION FORM -->
+  <section class="dashboard">
 
-        <h2>Child Registration Form</h2>
+    <div class="stat-card">
 
-        <form id="childForm">
+      <h3>Total Children</h3>
 
-            <h3>Child Information</h3>
-
-            <label for="firstName">First Name:</label>
-            <input
-                type="text"
-                id="firstName"
-                required
-            >
-
-            <label for="lastName">Last Name:</label>
-            <input
-                type="text"
-                id="lastName"
-                required
-            >
-
-            <label for="dob">Date of Birth:</label>
-            <input
-                type="date"
-                id="dob"
-                required
-            >
-
-            <label for="gender">Gender:</label>
-
-            <select id="gender" required>
-
-                <option value="">Select</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-
-            </select>
-
-
-            <label for="startDate">Start Date:</label>
-
-            <input
-                type="date"
-                id="startDate"
-                required
-            >
-
-
-            <label for="group">Group/Class:</label>
-
-            <input
-                type="text"
-                id="group"
-            >
-
-
-            <!-- PARENT INFORMATION -->
-
-            <h3>Parent Information</h3>
-
-            <label for="parentName">
-                Parent/Guardian Name:
-            </label>
-
-            <input
-                type="text"
-                id="parentName"
-                required
-            >
-
-
-            <label for="phone">
-                Phone Number:
-            </label>
-
-            <input
-                type="tel"
-                id="phone"
-                required
-            >
-
-
-            <label for="email">
-                Email:
-            </label>
-
-            <input
-                type="email"
-                id="email"
-            >
-
-
-            <label for="address">
-                Address:
-            </label>
-
-            <input
-                type="text"
-                id="address"
-            >
-
-
-            <!-- EMERGENCY INFORMATION -->
-
-            <h3>Emergency Information</h3>
-
-            <label for="emergencyName">
-                Emergency Contact Name:
-            </label>
-
-            <input
-                type="text"
-                id="emergencyName"
-            >
-
-
-            <label for="emergencyPhone">
-                Emergency Contact Phone:
-            </label>
-
-            <input
-                type="tel"
-                id="emergencyPhone"
-            >
-
-
-            <!-- ADDITIONAL INFORMATION -->
-
-            <h3>Additional Information</h3>
-
-            <label for="allergies">
-                Allergies:
-            </label>
-
-            <input
-                type="text"
-                id="allergies"
-            >
-
-
-            <label for="medical">
-                Medical Information:
-            </label>
-
-            <input
-                type="text"
-                id="medical"
-            >
-
-
-            <label for="specialNeeds">
-                Special Needs:
-            </label>
-
-            <input
-                type="text"
-                id="specialNeeds"
-            >
-
-
-            <label for="notes">
-                Notes:
-            </label>
-
-            <textarea
-                id="notes"
-                rows="4"
-            ></textarea>
-
-
-            <button
-                type="submit"
-                id="submitButton"
-            >
-                Register Child
-            </button>
-
-        </form>
-
-
-        <!-- REGISTERED CHILDREN -->
-
-        <hr>
-
-        <section class="registered-section">
-
-            <h2>Registered Children</h2>
-
-            <input
-                type="text"
-                id="searchChild"
-                placeholder="Search child by name..."
-            >
-
-            <div id="childrenList">
-
-                <p class="empty-message">
-                    No children registered yet.
-                </p>
-
-            </div>
-
-        </section>
+      <strong id="totalChildren">0</strong>
 
     </div>
 
+    <div class="stat-card">
 
-    <script src="script.js"></script>
+      <h3>Male</h3>
+
+      <strong id="totalMale">0</strong>
+
+    </div>
+
+    <div class="stat-card">
+
+      <h3>Female</h3>
+
+      <strong id="totalFemale">0</strong>
+
+    </div>
+
+    <div class="stat-card">
+
+      <h3>Present Today</h3>
+
+      <strong id="presentToday">0</strong>
+
+    </div>
+
+    <div class="stat-card">
+
+      <h3>Absent Today</h3>
+
+      <strong id="absentToday">0</strong>
+
+    </div>
+
+    <div class="stat-card">
+
+      <h3>Staff Members</h3>
+
+      <strong id="totalStaff">0</strong>
+
+    </div>
+
+    <div class="stat-card">
+
+      <h3>Total Payments</h3>
+
+      <strong id="totalPayments">$0.00</strong>
+
+    </div>
+
+  </section>
+
+  <!-- NAVIGATION -->
+
+  <nav class="navigation">
+
+    <a href="#registration">Registration</a>
+
+    <a href="#children">Children</a>
+
+    <a href="#attendanceSection">Attendance</a>
+
+    <a href="#dailyCare">Daily Care</a>
+
+    <a href="#history">History</a>
+
+    <a href="#staffSection">Staff</a>
+
+    <a href="#paymentsSection">Payments</a>
+
+    <a href="#reportsSection">Reports</a>
+
+    <a href="#backupSection">Backup</a>
+
+  </nav>
+
+  <!-- CHILD REGISTRATION -->
+
+  <section id="registration" class="panel">
+
+    <h2>Child Registration</h2>
+
+    <form id="childForm">
+
+      <h3>Child Information</h3>
+
+      <div class="form-grid">
+
+        <label>First Name *
+
+          <input id="firstName" required>
+
+        </label>
+
+        <label>Last Name *
+
+          <input id="lastName" required>
+
+        </label>
+
+        <label>Date of Birth *
+
+          <input type="date" id="dob" required>
+
+        </label>
+
+        <label>Gender *
+
+          <select id="gender" required>
+
+            <option value="">Select</option>
+
+            <option value="Male">Male</option>
+
+            <option value="Female">Female</option>
+
+            <option value="Other">Other</option>
+
+          </select>
+
+        </label>
+
+        <label>Start Date *
+
+          <input type="date" id="startDate" required>
+
+        </label>
+
+        <label>Group / Class
+
+          <input id="group">
+
+        </label>
+
+      </div>
+
+      <h3>Parent / Guardian Information</h3>
+
+      <div class="form-grid">
+
+        <label>Parent Name *
+
+          <input id="parentName" required>
+
+        </label>
+
+        <label>Phone Number *
+
+          <input type="tel" id="phone" required>
+
+        </label>
+
+        <label>Email
+
+          <input type="email" id="email">
+
+        </label>
+
+        <label>Address
+
+          <input id="address">
+
+        </label>
+
+      </div>
+
+      <h3>Emergency Information</h3>
+
+      <div class="form-grid">
+
+        <label>Emergency Contact Name
+
+          <input id="emergencyName">
+
+        </label>
+
+        <label>Emergency Contact Phone
+
+          <input type="tel" id="emergencyPhone">
+
+        </label>
+
+      </div>
+
+      <h3>Health and Additional Information</h3>
+
+      <div class="form-grid">
+
+        <label>Allergies
+
+          <input id="allergies">
+
+        </label>
+
+        <label>Medical Information
+
+          <input id="medical">
+
+        </label>
+
+        <label>Special Needs
+
+          <input id="specialNeeds">
+
+        </label>
+
+      </div>
+
+      <label>Notes
+
+        <textarea id="notes" rows="3"></textarea>
+
+      </label>
+
+      <button type="submit" id="childSubmit">
+
+        Register Child
+        </button>
+
+      <button type="button" id="cancelChildEdit"
+
+              class="secondary hidden">
+
+        Cancel Edit
+
+      </button>
+
+    </form>
+
+  </section>
+
+  <!-- REGISTERED CHILDREN -->
+
+  <section id="children" class="panel">
+
+    <h2>Registered Children</h2>
+
+    <input id="searchChild"
+
+           placeholder="Search by child name or group">
+
+    <div id="childrenList" class="card-list"></div>
+
+  </section>
+
+  <!-- BULK ATTENDANCE -->
+
+  <section id="attendanceSection" class="panel">
+
+    <h2>Daily Attendance</h2>
+
+    <p>Mark attendance for all children at once.</p>
+
+    <label>Attendance Date
+
+      <input type="date" id="attendanceDate">
+
+    </label>
+
+    <div id="attendanceList" class="attendance-list"></div>
+
+    <button type="button" id="saveAttendance">
+
+      Save All Attendance
+
+    </button>
+
+  </section>
+
+  <!-- DAILY CARE -->
+
+  <section id="dailyCare" class="panel">
+
+    <h2>Daily Care Record</h2>
+
+    <form id="dailyForm">
+
+      <div class="form-grid">
+
+        <label>Child *
+
+          <select id="dailyChild" required>
+
+            <option value="">Select child</option>
+
+          </select>
+
+        </label>
+
+        <label>Date *
+
+          <input type="date" id="recordDate" required>
+
+        </label>
+
+        <label>Attendance *
+
+          <select id="attendance" required>
+
+            <option value="">Select</option>
+
+            <option value="Present">Present</option>
+
+            <option value="Absent">Absent</option>
+
+          </select>
+
+        </label>
+
+        <label>Meals
+
+          <select id="meals">
+
+            <option value="">Not recorded</option>
+
+            <option value="All">Ate all</option>
+
+            <option value="Some">Ate some</option>
+
+            <option value="None">Did not eat</option>
+
+          </select>
+
+        </label>
+
+        <label>Snacks
+
+          <select id="snacks">
+
+            <option value="">Not recorded</option>
+
+            <option value="All">Ate all</option>
+
+            <option value="Some">Ate some</option>
+
+            <option value="None">Did not eat</option>
+
+          </select>
+
+        </label>
+
+        <label>Nap Start
+
+          <input type="time" id="napStart">
+
+        </label>
+
+        <label>Nap End
+
+          <input type="time" id="napEnd">
+
+        </label>
+
+      </div>
+
+      <label>Activities
+
+        <textarea id="activities" rows="3"></textarea>
+
+      </label>
+
+      <label>Incident Report
+
+        <textarea id="incidents" rows="3"></textarea>
+
+      </label>
+
+      <label>Daily Notes
+
+        <textarea id="dailyNotes" rows="3"></textarea>
+
+      </label>
+
+      <button type="submit">Save Daily Record</button>
+
+      <button type="button" id="clearDailyForm"
+
+              class="secondary">
+
+        Clear Fields
+
+      </button>
+
+    </form>
+
+  </section>
+
+  <!-- DAILY RECORDS HISTORY -->
+
+  <section id="history" class="panel">
+
+    <h2>Daily Records History</h2>
+
+    <div class="form-grid">
+
+      <label>Filter by Child
+
+        <select id="historyChild">
+
+          <option value="">All children</option>
+
+        </select>
+
+      </label>
+
+      <label>Filter by Date
+
+        <input type="date" id="historyDate">
+
+      </label>
+
+    </div>
+
+    <button type="button" id="clearHistoryFilters"
+
+            class="secondary">
+
+      Clear Filters
+
+    </button>
+
+    <div id="recordsList" class="card-list"></div>
+
+  </section>
+
+  <!-- STAFF MANAGEMENT -->
+
+  <section id="staffSection" class="panel">
+
+    <h2>Staff Management</h2>
+
+    <form id="staffForm">
+
+      <div class="form-grid">
+
+        <label>Full Name *
+
+          <input id="staffName" required>
+
+        </label>
+
+        <label>Position *
+
+          <select id="staffPosition" required>
+
+            <option value="">Select position</option>
+
+            <option value="Educator">Educator</option>
+
+            <option value="Assistant Educator">Assistant Educator</option>
+            <option value="Director">Director</option>
+
+            <option value="Cook">Cook</option>
+
+            <option value="Other">Other</option>
+
+          </select>
+
+        </label>
+
+        <label>Phone
+
+          <input type="tel" id="staffPhone">
+
+        </label>
+
+        <label>Email
+
+          <input type="email" id="staffEmail">
+
+        </label>
+
+        <label>Start Date
+
+          <input type="date" id="staffStart">
+
+        </label>
+
+        <label>Assigned Group
+
+          <input id="staffGroup">
+
+        </label>
+
+      </div>
+
+      <button type="submit" id="staffSubmit">
+
+        Add Staff Member
+
+      </button>
+
+      <button type="button" id="cancelStaffEdit"
+
+              class="secondary hidden">
+
+        Cancel Edit
+
+      </button>
+
+    </form>
+
+    <h3>Staff Directory</h3>
+
+    <div id="staffList" class="card-list"></div>
+
+  </section>
+
+  <!-- PAYMENT MANAGEMENT -->
+
+  <section id="paymentsSection" class="panel">
+
+    <h2>Payment Management</h2>
+
+    <form id="paymentForm">
+
+      <div class="form-grid">
+
+        <label>Child *
+
+          <select id="paymentChild" required>
+
+            <option value="">Select child</option>
+
+          </select>
+
+        </label>
+
+        <label>Payment Date *
+
+          <input type="date" id="paymentDate" required>
+
+        </label>
+
+        <label>Amount (CAD) *
+
+          <input type="number" id="paymentAmount"
+
+                 min="0.01" step="0.01" required>
+
+        </label>
+
+        <label>Payment Status *
+
+          <select id="paymentStatus" required>
+
+            <option value="Paid">Paid</option>
+
+            <option value="Pending">Pending</option>
+
+          </select>
+
+        </label>
+
+        <label>Payment Method
+
+          <select id="paymentMethod">
+
+            <option value="">Select</option>
+
+            <option value="Cash">Cash</option>
+
+            <option value="Card">Card</option>
+
+            <option value="E-Transfer">E-Transfer</option>
+
+            <option value="Other">Other</option>
+
+          </select>
+
+        </label>
+
+        <label>Description
+
+          <input id="paymentDescription"
+
+                 placeholder="e.g. October daycare fee">
+
+        </label>
+
+      </div>
+
+      <button type="submit" id="paymentSubmit">
+
+        Save Payment
+
+      </button>
+
+      <button type="button" id="cancelPaymentEdit"
+
+              class="secondary hidden">
+
+        Cancel Edit
+
+      </button>
+
+    </form>
+
+    <h3>Payment Records</h3>
+
+    <div id="paymentsList" class="card-list"></div>
+
+  </section>
+
+  <!-- REPORTS -->
+
+  <section id="reportsSection" class="panel">
+
+    <h2>Reports</h2>
+
+    <div class="form-grid">
+
+      <label>Report Date
+
+        <input type="date" id="reportDate">
+
+      </label>
+
+      <label>Child
+
+        <select id="reportChild">
+
+          <option value="">All children</option>
+
+        </select>
+
+      </label>
+
+    </div>
+
+    <button type="button" id="generateReport">
+
+      Generate Report
+
+    </button>
+
+    <button type="button" id="printReport"
+
+            class="secondary">
+
+      Print Report
+
+    </button>
+
+    <div id="reportOutput" class="report-output">
+
+      Select a date and generate a report.
+
+    </div>
+
+  </section>
+
+  <!-- BACKUP AND RESTORE -->
+
+  <section id="backupSection" class="panel">
+
+    <h2>Data Backup and Restore</h2>
+
+    <p>Export a backup of all project records.</p>
+
+    <button type="button" id="exportBackup">
+
+      Export JSON Backup
+
+    </button>
+
+    <h3>Restore Backup</h3>
+
+    <p class="warning">
+
+      Restoring a backup replaces the current project data.
+
+    </p>
+
+    <input type="file" id="importFile"
+
+           accept=".json,application/json">
+
+    <button type="button" id="importBackup"
+
+            class="secondary">
+
+      Restore Selected Backup
+
+    </button>
+
+  </section>
+
+  <footer>
+
+    Daycare Management System — Frontend Project
+
+  </footer>
+
+</main>
+
+<script src="script.js"></script>
 
 </body>
-
 </html>
